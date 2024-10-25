@@ -1,3 +1,4 @@
+
 import os
 
 def readFile():
@@ -7,15 +8,17 @@ def readFile():
 
     # Construct the path to the sample.bdd file
     bdd_file_path = os.path.abspath(os.path.join(current_dir , os.pardir, os.pardir))
-    bdd_file_path = bdd_file_path + "\sample.bdd"
+    bdd_file_path = bdd_file_path + "/sample.bdd"
     
     # Construct the path to the tests.feature file
     feature_file_path = os.path.abspath(os.path.join(current_dir , os.pardir))
-    feature_file_path = feature_file_path + "tests.feature"
+    feature_file_path = feature_file_path + "/tests.feature"
     # Check if the file exists
     if not os.path.exists(bdd_file_path):
         print(f"File not found: {bdd_file_path}")
         return
+    
+    print("here")
 
     with open(bdd_file_path) as f:
         with open(feature_file_path, "w") as fileWriter:
@@ -36,4 +39,4 @@ def readFile():
                     fileWriter.write(line)
 
 # Call the function
-readFile()
+#readFile()

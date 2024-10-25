@@ -1,12 +1,12 @@
 import os
 import json
-from msilib.schema import Feature
+# from msilib.schema import Feature
 from pyexpat import features
 from behave import fixture
-import rtde_receive
-import rtde_control
-import rtde_io
-from logic.sdu_robotics.robotiq_gripper_control import RobotiqGripper
+# import rtde_receive
+# import rtde_control
+# import rtde_io
+# from logic.sdu_robotics.robotiq_gripper_control import RobotiqGripper
 from behave.model import Scenario
 
 # Dynamically find the path to Environment.json
@@ -26,9 +26,9 @@ def before_all(context):
     ip = get_robot_ip()
     
     # Initialize interfaces
-    context.controller = rtde_control.RTDEControlInterface(ip)
-    context.receiver = rtde_receive.RTDEReceiveInterface(ip)
-    context.io = rtde_io.RTDEIOInterface(ip)
+    # context.controller = rtde_control.RTDEControlInterface(ip)
+    # context.receiver = rtde_receive.RTDEReceiveInterface(ip)
+    # context.io = rtde_io.RTDEIOInterface(ip)
 
     # Initialize gripper
     """
@@ -39,7 +39,8 @@ def before_all(context):
     """
 
 def before_feature(context, feature): 
-    context.controller.moveJ(get_position("default"), get_speed(), get_acceleration())
+    # context.controller.moveJ(get_position("default"), get_speed(), get_acceleration())
+    pass
 
 def after_feature(context, feature):
     pass
