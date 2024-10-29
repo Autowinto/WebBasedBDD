@@ -1,3 +1,5 @@
+import { spellcheck } from "./spellcheck.js";
+
 function readFile() {
 	let input = document.getElementById('file-input')
 	let file = input.files[0]
@@ -141,6 +143,7 @@ function switchEditor(e) {
 }
 
 function onEntityEditorChange() {
+	spellcheck(entities)
 	if (entities.innerText != null && entities.innerText.replace(/[^a-zA-Z]/g, '').trim() !== '') {
 		setEnabled(scenarioTab);
 		enabledByText = true;
@@ -163,6 +166,7 @@ function onEntityEditorChange() {
 }
 
 function onScenarioEditorChange() {
+	spellcheck(scenario)
 	fetch('/xtext-service/ast?resource=multi-resource/scenarios.bdd')
 		.then(response => response.json())
 		.then(response => {
