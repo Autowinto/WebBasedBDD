@@ -60,3 +60,10 @@ local.properties
 #.project
 
 **/src-gen/**
+
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/features/Environment.json
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/features/__pycache__/environment.cpython-310.pyc
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/features/logic/__pycache__/fileReader.cpython-310.pyc
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/tests.feature
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/sample.bdd
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext/model/generated/BddDsl.genmodel
