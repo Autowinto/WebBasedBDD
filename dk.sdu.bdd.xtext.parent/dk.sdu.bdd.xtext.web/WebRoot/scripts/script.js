@@ -116,6 +116,10 @@ function aiCompletionHelp(){
 	window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
 }
 
+function performScenarioCheck() {
+	alert("WIP")
+}
+
 function displayEditor(currEditor, newEditor, currBlockly, newBlockly) {
 	currEditor.style.display = "none"
 	currBlockly.style.display = "none"
@@ -132,9 +136,15 @@ function switchEditor(e) {
 		removeSelectionBorder(currentTab)
 		let editorId = e.target.dataset.editorId
 
-		if (editorId == "xtext-editor-entities") { b = "blockly-editor" }
-		else if (editorId == "xtext-editor-scenarios") { b = "blockly-editor2" }
-
+		if (editorId == "xtext-editor-entities") { 
+			b = "blockly-editor" 
+			document.getElementById("check-scenarios-btn").disabled = true
+		} else if (editorId == "xtext-editor-scenarios") { 
+			document.getElementById("check-scenarios-btn").disabled = false
+			b = "blockly-editor2" 
+		}
+		
+		
 		let editor = document.getElementById(editorId)
 		let blockly = document.getElementById(b)
 		displayEditor(currentEditor, editor, currentBlockly, blockly)
@@ -142,7 +152,7 @@ function switchEditor(e) {
 		currentTab = e.target
 		currentBlockly = blockly
 		setSelectionBorder(currentTab)
-    	loadBlocks(currentTab, true);
+    loadBlocks(currentTab, true);
 	}
 }
 
@@ -151,6 +161,7 @@ function onEntityEditorChange() {
 	if (entities.innerText != null && entities.innerText.replace(/[^a-zA-Z]/g, '').trim() !== '') {
 		setEnabled(scenarioTab);
 		enabledByText = true;
+		document.getElementById("check-scenarios-btn").disabled = true
 
 		fetch('/xtext-service/ast?resource=multi-resource/scenarios.bdd')
 			.then(response => response.json())
