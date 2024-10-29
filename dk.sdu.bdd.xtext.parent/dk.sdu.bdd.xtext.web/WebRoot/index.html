@@ -12,6 +12,8 @@
     <script src="./scripts/generators/blockGenerator.js" defer></script>
     <script type="module" src="./scripts/script.js" defer></script>
     <script type="module" src="./scripts/spellcheck.js" defer></script>
+	<script type="module" src="./scripts/scenarioUtils.js" defer></script>
+
   </head>
   <body>
     <div class="container">
@@ -53,6 +55,7 @@
         <button id="save-entities" onclick="saveEntities()">Save Entities</button>    
         <button id="run-scenario" onclick="runScenario()">Run Scenario</button>
         <button id="ai-completion-help" onclick="aiCompletionHelp()">Get AI Recommendations</button>
+		<button id="check-inconsistencies" onclick="checkInconsistencies()">Check Scenario Inconsistencies</button>
       </div>
     </div>
   </body>
