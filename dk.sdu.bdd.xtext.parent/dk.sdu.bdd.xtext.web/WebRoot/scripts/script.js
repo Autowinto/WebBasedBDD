@@ -1,4 +1,6 @@
 import { spellcheck } from "./spellcheck.js";
+import { open_template } from "./templates.js";
+
 
 function readFile() {
 	let input = document.getElementById('file-input')
@@ -27,6 +29,7 @@ function printChildren(a) {
 }
 
 function onDocumentChange() {
+	console.log("DOCUMENT CHANGED")
 	let editor = getCurrentAceEditor()
 	let document = editor.env.document.doc
 	let fileContent = document.getValue()
@@ -124,6 +127,7 @@ function displayEditor(currEditor, newEditor, currBlockly, newBlockly) {
 }
 
 function switchEditor(e) {
+	console.log("SwitchEditor: "+ e)
 	if (e.target.disabled)
 		return;
 
@@ -134,6 +138,7 @@ function switchEditor(e) {
 
 		if (editorId == "xtext-editor-entities") { b = "blockly-editor" }
 		else if (editorId == "xtext-editor-scenarios") { b = "blockly-editor2" }
+		else {return}
 
 		let editor = document.getElementById(editorId)
 		let blockly = document.getElementById(b)

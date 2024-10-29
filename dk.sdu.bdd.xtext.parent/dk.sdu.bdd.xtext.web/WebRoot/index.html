@@ -12,6 +12,8 @@
     <script src="./scripts/generators/blockGenerator.js" defer></script>
     <script type="module" src="./scripts/script.js" defer></script>
     <script type="module" src="./scripts/spellcheck.js" defer></script>
+    <script type="module" src="./scripts/templates.js" defer></script>
+
   </head>
   <body>
     <div class="container">
@@ -44,6 +46,12 @@
         <div class="blockly" id="blockly-editor" style="display:block;"></div>
         <div class="blockly" id="blockly-editor2" style="display:none;"></div>
       </div>
+      <div>
+        <span>Templates: </span>
+        <button id="template1" onclick="open_template('template1')">Template1</button>
+      </div>
+      <div style="height:30px;"></div>
+
       <div>
         <button id="save-button" value="Save" title="Save">Save</button>
         <input id="file-input" type="file" style="display: none;"/>
