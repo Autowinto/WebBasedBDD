@@ -110,6 +110,10 @@ const runCodeForScenario = (element) => {
 	}	
 };
 
+function aiCompletionHelp(){
+	window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+}
+
 function displayEditor(currEditor, newEditor, currBlockly, newBlockly) {
 	currEditor.style.display = "none"
 	currBlockly.style.display = "none"
