@@ -1,0 +1,42 @@
+model sample using robotic_domain
+declarative entity robot {
+  actions: moves, picks, releases
+  properties: position, speed
+}
+
+declarative entity output {
+  actions: activates, deactivates
+  states: ON, OFF
+  properties: position
+}
+
+declarative entity button {
+  states: ON, OFF
+  properties: signal
+}
+
+declarative entity gripper {
+  actions: opens, closes
+  states: open, closed
+}
+
+Scenario: "PickAndPlace1"
+  Given the output "light" is OFF
+  And the gripper "gripper" is closed
+  And the signal of the button "greenButton" is ON
+  When the output "light" activates
+  And the robot "Rob" linearly moves to position "aboveObject"
+  And the gripper "gripper" opens
+  Then the position of the robot "Rob" is "aboveObject"
+  And the gripper "gripper" is open
+
+Scenario: "PickAndPlace2"
+  Given the position of the robot "Rob" is "aboveObject"
+  And the gripper "gripper" is open
+  When the gripper "gripper" closes
+  And the robot "Rob" moves to position "placementLocation" with "fast" speed
+  And the gripper "gripper" opens
+  And the output "light" deactivates
+  Then the output "light" is OFF
+  And the position of the robot "Rob" is "placementLocation"
+  And the gripper "gripper" is open

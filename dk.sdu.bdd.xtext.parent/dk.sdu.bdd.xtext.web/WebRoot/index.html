@@ -10,10 +10,12 @@
     <script src="./scripts/imports.js" defer></script>
     <script src="./scripts/generators/bdd.js" defer></script>
     <script src="./scripts/generators/blockGenerator.js" defer></script>
-	<script src="./scripts/spellcheck.js" defer></script>
-	<script src="./scripts/script.js" defer></script>
-	<script src="./scripts/report.js" defer></script>
-  
+    <script src="./scripts/ai_helper.js" defer></script>
+    <script src="./scripts/spellcheck.js" defer></script>
+    <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/templates.js" defer></script>
+	<script src="./scripts/scenarios.js" defer></script>
+
   </head>
   <body>
     <div class="container">
@@ -30,9 +32,15 @@
       </div>
       <div class="content">
       	<div id="spellcheckToast" style="display:none; position:fixed; bottom:20px; right:20px; z-index: 200; background:#333; color:white; padding:15px; border-radius:8px; box-shadow:0px 4px 6px rgba(0,0,0,0.2); max-width: 300px;">
-		    <strong>Spelling Errors Detected:</strong>
-		    <ul id="toastErrorList" style="margin: 10px 0 0; padding: 0; list-style-type: none; "></ul>
-		</div>
+          <strong>Spelling Errors Detected:</strong>
+          <ul id="toastErrorList" style="margin: 10px 0 0; padding: 0; list-style-type: none; "></ul>
+		    </div>
+        <div id="AIHelperToast" style="display:none; position:fixed; bottom:20px; right:20px; z-index:200; background:#333; color:white; padding:15px; border-radius:8px; box-shadow:0px 4px 6px rgba(0,0,0,0.2); max-width:300px;">
+          <button onclick="document.getElementById('AIHelperToast').style.display='none'" style="position:absolute; top:5px; right:5px; background:none; border:none; color:white; font-size:16px; cursor:pointer;">&times;</button>
+          <strong>AI Recommendations:</strong>
+          <ul id="AIHelperList" style="margin:10px 0 0; padding:0; list-style-type:none;"></ul>
+      </div>
+      
         <div class="xtext-wrapper">
           <div id="xtext-editor-scenarios" class="xtext-editor" style="display: none" 
             data-editor-resource-id="multi-resource/scenarios.bdd" 
@@ -46,6 +54,12 @@
         <div class="blockly" id="blockly-editor" style="display:block;"></div>
         <div class="blockly" id="blockly-editor2" style="display:none;"></div>
       </div>
+      <div id="templates_container">
+        <span>Templates: </span>
+        <button id="Load Template Buttons" onclick="load_templates()">Load templates</button>
+      </div>
+      <div style="height:30px;"></div>
+
       <div>
         <button id="save-button" value="Save" title="Save">Save</button>
         <input id="file-input" type="file" style="display: none;"/>
@@ -56,7 +70,9 @@
         <button id="run-scenario" onclick="runScenario()">Run Scenario</button>
         <button id="ai-completion-help" onclick="aiCompletionHelp()">Get AI Recommendations</button>
         <button id="summary-report-button" onclick="openSummaryReport()">Open Summary Report</button>
+      	<button id="scenario-check-btn" disabled="true" onclick="checkScenarios()">Check Scenarios</button>
       </div>
+		</div>
     </div>
   </body>
 </html>

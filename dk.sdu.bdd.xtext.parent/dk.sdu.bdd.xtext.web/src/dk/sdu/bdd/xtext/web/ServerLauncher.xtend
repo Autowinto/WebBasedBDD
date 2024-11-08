@@ -3,22 +3,30 @@
  */
 package dk.sdu.bdd.xtext.web
 
+import java.io.IOException;
 import java.net.InetSocketAddress
-
+import javax.servlet.http.HttpServlet
+import javax.servlet.http.HttpServletRequest
+import javax.servlet.http.HttpServletResponse
 import org.eclipse.jetty.annotations.AnnotationConfiguration
 import org.eclipse.jetty.server.Server
+import org.eclipse.jetty.servlet.ServletHolder
 import org.eclipse.jetty.util.log.Slf4jLog
 import org.eclipse.jetty.webapp.MetaInfConfiguration
 import org.eclipse.jetty.webapp.WebAppContext
 import org.eclipse.jetty.webapp.WebInfConfiguration
 import org.eclipse.jetty.webapp.WebXmlConfiguration
+import org.json.JSONObject
+import dk.sdu.bdd.xtext.web.servlets.ReadTemplatesServlet
+import dk.sdu.bdd.xtext.web.servlets.CreateTemplateServlet
+
 
 /**
  * This program starts an HTTP server for testing the web integration of your DSL.
  * Just execute it and point a web browser to http://localhost:8080/
  */
 class ServerLauncher {
-	def static void main(String[] args) {
+def static void main(String[] args) {
 		val server = new Server(new InetSocketAddress('localhost', 8080))
 		server.handler = new WebAppContext => [
 			resourceBase = 'WebRoot'
@@ -32,7 +40,12 @@ class ServerLauncher {
 			]
 			setAttribute(WebInfConfiguration.CONTAINER_JAR_PATTERN, '.*/dk\\.sdu\\.bdd\\.xtext\\.web/.*,.*\\.jar')
 			setInitParameter("org.eclipse.jetty.servlet.Default.useFileMappedBuffer", "false")
+
+			// Add the servlet for "/list-templates" endpoint
+			addServlet(new ServletHolder(new ReadTemplatesServlet()), "/list-templates")
+			addServlet(new ServletHolder(new CreateTemplateServlet()), "/create-template")
 		]
+
 		val log = new Slf4jLog(ServerLauncher.name)
 		try {
 			server.start
