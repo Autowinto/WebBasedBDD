@@ -16,7 +16,7 @@ async function open_template(fileName) {
       session.insert({
         row: session.getLength(),
         column: 0
-      }, "\n" + template.content)
+      }, template.content)
     }
   });
 }
