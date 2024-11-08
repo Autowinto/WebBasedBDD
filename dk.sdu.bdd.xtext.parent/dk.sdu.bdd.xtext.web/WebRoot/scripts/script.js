@@ -1,5 +1,3 @@
-import { spellcheck } from "./spellcheck.js";
-
 function readFile() {
 	let input = document.getElementById('file-input')
 	let file = input.files[0]
