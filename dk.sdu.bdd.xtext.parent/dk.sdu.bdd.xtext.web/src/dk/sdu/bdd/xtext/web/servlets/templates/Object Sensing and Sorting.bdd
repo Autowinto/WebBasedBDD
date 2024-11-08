@@ -1,3 +1,4 @@
+model sample using robotic_domain
 declarative entity robot {
   actions: moves, picks, releases
   properties: position
