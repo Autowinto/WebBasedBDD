@@ -5,8 +5,8 @@ declarative entity robot {
 }
 
 declarative entity output {
-  states: ON, OFF
   actions: activates, deactivates
+  states: ON, OFF
   properties: position
 }
 
@@ -16,8 +16,8 @@ declarative entity button {
 }
 
 declarative entity gripper {
-  states: open, closed
   actions: opens, closes
+  states: open, closed
 }
 
 Scenario: "PickAndPlace1"
