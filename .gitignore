@@ -68,3 +68,5 @@ dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/
 dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/tests.feature
 dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.examples/bin/dk/sdu/bdd/xtext/examples/sample.bdd
 dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext/model/generated/BddDsl.genmodel
+
+dk.sdu.bdd.xtext.parent/dk.sdu.bdd.xtext.web/xtend-gen

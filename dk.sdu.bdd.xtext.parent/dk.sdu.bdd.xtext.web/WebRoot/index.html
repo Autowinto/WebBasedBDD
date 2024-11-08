@@ -11,8 +11,10 @@
     <script src="./scripts/generators/bdd.js" defer></script>
     <script src="./scripts/generators/blockGenerator.js" defer></script>
     <script src="./scripts/ai_helper.js" defer></script>
-    <script src="./scripts/script.js" defer></script>
     <script src="./scripts/spellcheck.js" defer></script>
+    <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/templates.js" defer></script>
+
   </head>
   <body>
     <div class="container">
@@ -51,6 +53,12 @@
         <div class="blockly" id="blockly-editor" style="display:block;"></div>
         <div class="blockly" id="blockly-editor2" style="display:none;"></div>
       </div>
+      <div id="templates_container">
+        <span>Templates: </span>
+        <button id="Load Template Buttons" onclick="load_templates()">Load templates</button>
+      </div>
+      <div style="height:30px;"></div>
+
       <div>
         <button id="save-button" value="Save" title="Save">Save</button>
         <input id="file-input" type="file" style="display: none;"/>

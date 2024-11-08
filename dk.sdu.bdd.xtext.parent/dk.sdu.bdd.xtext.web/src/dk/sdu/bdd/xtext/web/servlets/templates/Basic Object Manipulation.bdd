@@ -1,0 +1,21 @@
+model sample using robotic_domain
+declarative entity robot {
+  actions: moves, grabs, releases
+  properties: position
+}
+
+declarative entity object {
+  states: grabbed, released
+}
+
+Scenario: "grabbing object"
+  Given the position of the robot "Sun" is "START"
+  When the robot "Sun" moves to position "aboveObject"
+  And the robot "Sun" grabs the object "Bottle"
+  Then the object "Bottle" is grabbed
+
+Scenario: "moving object"
+  Given the object "Bottle" is grabbed
+  When the robot "Sun" moves to position "above bucket"
+  And the robot "Sun" releases the object "Bottle"
+  Then the object "Bottle" is released
