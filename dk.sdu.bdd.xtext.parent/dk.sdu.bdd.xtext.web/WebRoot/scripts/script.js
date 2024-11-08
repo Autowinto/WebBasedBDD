@@ -437,5 +437,3 @@ function runScenario() {
     }
   });
 }
-
-
