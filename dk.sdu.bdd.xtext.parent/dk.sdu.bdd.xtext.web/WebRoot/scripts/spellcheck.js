@@ -14,7 +14,7 @@ async function checkAllWords(words) {
     return results.filter(result => result !== null);
 }
 
-export function spellcheck(entities, scenarios) {
+function spellcheck(entities, scenarios) {
     let entitiesTextLines = entities.querySelectorAll(".ace_line");
     let words = [];
 
