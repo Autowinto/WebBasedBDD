@@ -1,8 +1,8 @@
-export function load_templates() {
+function load_templates() {
   loadTemplateButtons();
 }
 
-export async function open_template(fileName) {
+async function open_template(fileName) {
   const editor = getCurrentAceEditor()
   editor.setValue("")
   var session = editor.session
