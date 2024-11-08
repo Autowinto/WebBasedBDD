@@ -111,8 +111,26 @@ const runCodeForScenario = (element) => {
 };
 
 function aiCompletionHelp(){
-	window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-}
+	document.getElementById('AIHelperToast').style.display='none'
+	input = getScenarioText(scenario)
+	fetch('http://13.48.149.156:8000/query/magnus er en god dreng/'+input)
+  	.then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+ 	 })
+  	.then(data => {
+		const toastHelperList = document.getElementById('AIHelperList');
+		toastHelperList.innerHTML = data[0]
+ 	    // Show the toast
+		const toast = document.getElementById('AIHelperToast');
+		toast.style.display = 'block';
+  	})
+ 	 .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+ 	 });
+};
 
 function displayEditor(currEditor, newEditor, currBlockly, newBlockly) {
 	currEditor.style.display = "none"
