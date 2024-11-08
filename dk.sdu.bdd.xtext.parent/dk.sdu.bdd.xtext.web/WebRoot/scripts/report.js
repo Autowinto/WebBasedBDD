@@ -33,5 +33,8 @@ function extractInconsistencyComments(code) {
     const matches = code.match(commentPattern) || [];
     return matches.map(comment => comment.trim());
 }
-// NOTE: Inconsistency detected at line 42. Reason: Missing semicolon.
-// NOTE: Potential logic error on line 58. Suggestion: Check conditional logic.
+
+
+
+
+//identifyScenarioInconsistencies
