@@ -114,7 +114,7 @@ const runCodeForScenario = (element) => {
 };
 
 function checkScenarios() {
-	alert("Check Scenarios")
+	alert(identifyScenarioInconsistencies())
 }
 
 function aiCompletionHelp(){
