@@ -114,7 +114,7 @@ const runCodeForScenario = (element) => {
 };
 
 function checkScenarios() {
-	alert(identifyScenarioInconsistencies())
+	alert(JSON.stringify(identifyScenarioInconsistencies()))
 }
 
 function aiCompletionHelp(){
