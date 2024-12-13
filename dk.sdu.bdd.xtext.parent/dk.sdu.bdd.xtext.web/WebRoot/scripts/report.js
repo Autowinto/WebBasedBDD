@@ -11,16 +11,22 @@ function openSummaryReport() {
         : "<p>No scenario inconsistencies found.</p>";
 
     summaryWindow.document.body.innerHTML = `
-      <h1>Summary Report</h1>
+      <h2>Summary Report</h2> <h3>(keyboard shortcut ctrl+alt+s)</h3> 
       <button id="refreshButton">Refresh</button>
       <h2>Scenario Inconsistencies</h2>
       ${scenarioContent}
-      
     `;
+
     summaryWindow.document.getElementById('refreshButton').onclick = refreshContent;
   }
-  
-  refreshContent();
 
+  refreshContent();
   summaryWindow.document.close();
 }
+
+window.addEventListener('keydown', (event) => {
+  if (event.ctrlKey && event.altKey && event.key === 's') {
+    event.preventDefault(); // Prevent the default action if needed
+    openSummaryReport();
+  }
+});
